@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\ofApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxNanoVG_CH\libs\nanovg\src\nanovg.c">
+      <Filter>addons\ofxNanoVG_CH\libs\nanovg\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons">
+      <UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNanoVG_CH">
+      <UniqueIdentifier>{EF338EB7-E587-B9D4-BA26-EAE8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNanoVG_CH\src">
+      <UniqueIdentifier>{02D949D0-0F0A-4D54-4B72-9C93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNanoVG_CH\libs">
+      <UniqueIdentifier>{CD274A89-71B7-BCFB-6548-0FE2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNanoVG_CH\libs\nanovg">
+      <UniqueIdentifier>{2D7C6548-443D-C72F-1132-4934}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNanoVG_CH\libs\nanovg\src">
+      <UniqueIdentifier>{B015DC07-F9D4-0937-88C2-034E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ofApp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNanoVG_CH\src\nanoVG.hpp">
+      <Filter>addons\ofxNanoVG_CH\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNanoVG_CH\libs\nanovg\src\fontstash.h">
+      <Filter>addons\ofxNanoVG_CH\libs\nanovg\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNanoVG_CH\libs\nanovg\src\nanovg.h">
+      <Filter>addons\ofxNanoVG_CH\libs\nanovg\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNanoVG_CH\libs\nanovg\src\nanovg_gl.h">
+      <Filter>addons\ofxNanoVG_CH\libs\nanovg\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNanoVG_CH\libs\nanovg\src\nanovg_gl_utils.h">
+      <Filter>addons\ofxNanoVG_CH\libs\nanovg\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNanoVG_CH\libs\nanovg\src\stb_image.h">
+      <Filter>addons\ofxNanoVG_CH\libs\nanovg\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNanoVG_CH\libs\nanovg\src\stb_truetype.h">
+      <Filter>addons\ofxNanoVG_CH\libs\nanovg\src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+</Project>

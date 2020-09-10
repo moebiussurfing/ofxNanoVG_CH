@@ -39,7 +39,7 @@ protected:
     std::shared_ptr<ofx::nvg::Context> mNanoVG;
     ofVec2f mCanvasSize;
     ofVec2f mBezier[ 5 ]; // we now need to keep track of the four points of a Bezier segment and the first control point of the next segment
-    uint mPositionCount;
+    int mPositionCount;
     ofFbo mFbo;
     ofFbo mTempFbo;
     ofPolyline mLine;
