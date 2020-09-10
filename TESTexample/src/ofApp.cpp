@@ -3,28 +3,40 @@
 #include "nanoVG.hpp"
 
 //--------------------------------------------------------------
-void ofApp::setup(){
+void ofApp::setup() {
 	ofSetFrameRate(60);
 	ofSetBackgroundAuto(false);
 	ofBackground(0);
 	mNanoVG = std::shared_ptr<ofx::nvg::Context>(new ofx::nvg::Context(true, false));
-	
+
 	red = ofFloatColor(1, 0, 0, 1);
 	green = ofFloatColor(0, 1, 0, 1);
 	white = ofFloatColor(1, 1, 1, 1);
 	cyan = ofFloatColor(0, 1, 1, 1);
 	blue = ofFloatColor(0, 0, 1, 1);
 
-	mCanvasSize = ofVec2f(900, 900);
+	mCanvasSize = ofVec2f(ofGetWidth(), ofGetHeight());
+	//mCanvasSize = ofVec2f(900, 900);
 
-	mFbo.allocate(mCanvasSize.x, mCanvasSize.y);
+	ofFbo::Settings settings;
+	settings.wrapModeVertical = true;
+	settings.useStencil = true;
+	settings.numSamples = 16;
+	settings.width = mCanvasSize.x;
+	settings.height = mCanvasSize.y;
+	settings.internalformat = GL_RGBA;
+	mFbo.allocate(settings);
+	//mFbo.allocate(mCanvasSize.x, mCanvasSize.y);
+
 	mFbo.bind();
 	clear();
 	mFbo.unbind();
+
+	//ofToggleFullscreen();
 }
 
 //--------------------------------------------------------------
-void ofApp::update(){
+void ofApp::update() {
 	mFbo.bind();
 	drawScene();
 	//mNanoVG->beginFrame(mCanvasSize.x, mCanvasSize.y, 1);
@@ -36,16 +48,16 @@ void ofApp::update(){
 }
 
 //--------------------------------------------------------------
-void ofApp::draw(){
+void ofApp::draw() {
 	ofClear(100);
 
-	//mFbo.draw(0, mFbo.getHeight(), mFbo.getWidth(), -mFbo.getHeight());
-	mFbo.draw(ofGetMouseX(), ofGetMouseY());
 	//mFbo.draw(0, 0);
+	mFbo.draw(0, mFbo.getHeight(), mFbo.getWidth(), -mFbo.getHeight());
+	//mFbo.draw(ofGetMouseX(), ofGetMouseY());
 }
 
 //--------------------------------------------------------------
-void ofApp::drawScene(){
+void ofApp::drawScene() {
 	ofClear(0);
 
 	ofPushStyle();
@@ -81,14 +93,22 @@ void ofApp::drawScene(){
 
 	mNanoVG->beginFrame(mCanvasSize.x, mCanvasSize.y, 1);
 	mNanoVG->beginPath();
-	//mNanoVG->circle(0, 0, 100);
-	//mNanoVG->lineTo(0,0);
-	//mNanoVG->lineTo(100,100);
-	mNanoVG->circle(0, 0, 20);
-	mNanoVG->lineTo(100,200);
-	mNanoVG->moveTo(500,500);
+	mNanoVG->strokeColor(ofFloatColor(ofColor::red));
+	mNanoVG->circle(300, 300, 20);
+	mNanoVG->moveTo(200, 200);
+	mNanoVG->lineTo(100, 200);
+	mNanoVG->moveTo(500, 500);
+	mNanoVG->strokeColor(ofFloatColor(ofColor::yellowGreen));
 	mNanoVG->roundedRect(500, 500, 100, 100, 10);
-	stroke(1, cyan, 10);//call befor end
+	mNanoVG->moveTo(50, 50);
+	mNanoVG->circle(50, 50, 50);
+	stroke(0, cyan, 5);//call befor end
+	mNanoVG->endFrame();
+
+	mNanoVG->beginFrame(mCanvasSize.x, mCanvasSize.y, 1);
+	mNanoVG->beginPath();
+	mNanoVG->circle(300, 300, 20);
+	stroke(1, red, 2);//call befor end
 	mNanoVG->endFrame();
 
 	//mNanoVG->beginFrame(mCanvasSize.x, mCanvasSize.y, 1);
@@ -102,6 +122,13 @@ void ofApp::drawScene(){
 	//stroke(1, ofFloatColor(ofColor::green), 5);
 	//mNanoVG->endFrame();
 
+	mNanoVG->beginFrame(mCanvasSize.x, mCanvasSize.y, 1);
+	mNanoVG->beginPath();
+	mNanoVG->ellipse(500, 500, 500, 700);
+	//mNanoVG->stroke(1.0, 1.0, 0.0, 1.0, 3);
+	stroke(3, blue, 2);//call befor end
+	mNanoVG->endFrame();
+
 }
 
 void ofApp::stroke(int cap, ofFloatColor color, int width)
@@ -113,56 +140,56 @@ void ofApp::stroke(int cap, ofFloatColor color, int width)
 }
 
 //--------------------------------------------------------------
-void ofApp::keyPressed(int key){
+void ofApp::keyPressed(int key) {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::keyReleased(int key){
+void ofApp::keyReleased(int key) {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
+void ofApp::mouseMoved(int x, int y) {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
+void ofApp::mouseDragged(int x, int y, int button) {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
+void ofApp::mousePressed(int x, int y, int button) {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
+void ofApp::mouseReleased(int x, int y, int button) {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y){
+void ofApp::mouseEntered(int x, int y) {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y){
+void ofApp::mouseExited(int x, int y) {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
+void ofApp::windowResized(int w, int h) {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
+void ofApp::gotMessage(ofMessage msg) {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
+void ofApp::dragEvent(ofDragInfo dragInfo) {
 
 }
